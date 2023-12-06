@@ -1,0 +1,62 @@
+<odoo>
+  <data>
+    <!-- patient form view -->
+
+    <record model="ir.ui.view" id="patient_form">
+      <field name="name">hospital.patient.form</field>
+      <field name="model">hospital.patient</field>
+      <field name="arch" type="xml">
+        <form string="Patient">
+          <sheet>
+            <!-- <div class="oe_title">
+                <h1>
+                  <field name="name_seq" readonly="1"/>
+                </h1>
+            </div> -->
+            <group>
+              <group>
+                <field name="patient_name"/>
+              </group>
+              <group>
+                <field name="patient_age"/>
+                <field name="note"/>    
+              </group>
+            </group>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="activity_ids" widget="mail_activity"/>
+            <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="patient_tree">
+      <field name="name">hospital.patient.tree</field>
+      <field name="model">hospital.patient</field>
+      <field name="arch" type="xml">
+        <tree string="Patient">
+          <!-- <field name="name_seq"/> -->
+          <field name="patient_name"/>
+          <field name="patient_age"/>    
+          <field name="note"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on patient-->
+
+    <record model="ir.actions.act_window" id="action_patient">
+      <field name="name">Patient</field>
+      <field name="res_model">hospital.patient</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Hospital" id="hospital_root"/>
+    <menuitem name="Patient" id="hospital_patient" parent="hospital_root" action="action_patient"/>
+
+  </data>
+</odoo>
