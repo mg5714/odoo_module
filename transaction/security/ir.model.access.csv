@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_transaction_citizen,transaction.citizen,model_transaction_citizen,base.group_user,1,1,1,1
+access_transaction_transaction_type,transaction.transaction_type,model_transaction_transaction_type,base.group_user,1,1,1,1
+access_transaction_transaction_stage,transaction.transaction_stage,model_transaction_transaction_stage,base.group_user,1,1,1,1
